@@ -49,7 +49,7 @@ func main() {
 
 	app.Post("/login", userHandler.Login)
 
-	app.Post("/admin", middlewares.VerifyUser, middlewares.CheckAdmin, userHandler.GetAdminDetails)
+	app.Get("/admin", middlewares.VerifyUser, middlewares.CheckAdmin, userHandler.GetAdminDetails)
 
 	// Start the server on port 3000
 	log.Fatal(app.Listen(":4000"))
